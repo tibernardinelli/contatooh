@@ -5,10 +5,10 @@ angular.module('contatooh').controller('ContatosController',
 	function($scope, $resource){
 		$scope.contatos = [];
 		
-		var Contato = $resource("/contatos");
+		var Contatos = $resource("/contatos");
 		
 		function buscaContato(){
-			Contato.query(
+			Contatos.query(
 				function(data){
 					$scope.contatos = data;
 				},
@@ -19,15 +19,17 @@ angular.module('contatooh').controller('ContatosController',
 			);
 		}
 		buscaContato();
-		
+
+	    var Contato = $resource("/contatos/:id");
 		$scope.remove = function (contato){
-			Contato.delete({id: contato._id},			
+			Contato.remove({id: contato._id},			
 				buscaContato,
 				function(erro){
 					console.log('Não foi possível remover contato');
 					console.log(erro);
 				});
 		}
-
+		
+		
      	$scope.filtro = "";
 	});

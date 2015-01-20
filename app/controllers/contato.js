@@ -26,6 +26,7 @@ module.exports = function(){
 		res.status(404).send('Contato não encontrado');
 	}
 	controller.removeContato = function(req, res){
+		console.log(req.params);
 		var idContato = req.params.id;
 		console.log('Removendo contato ' + idContato);
 		contatos = contatos.filter(function(contato){

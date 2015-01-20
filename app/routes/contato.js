@@ -4,8 +4,7 @@ module.exports = function(app){
 
 	app.route('/contatos')
 		.get(controller.listaContato)
-		.post(controller.salvaContato)
-		.delete(controller.removeContato);
+		.post(controller.salvaContato)	
 	app.route('/contatos/:id')
 		.get(controller.obtemContato)
 		.delete(controller.removeContato);
