@@ -2,34 +2,32 @@
 
 
 angular.module('contatooh').controller('ContatosController', 
-	function($scope, $resource){
+	function($scope, $resource, Contato){
 		$scope.contatos = [];
 		
-		var Contatos = $resource("/contatos");
-		
+		$scope.mensagem = {texto: ''};
+
 		function buscaContato(){
-			Contatos.query(
+			Contato.query(
 				function(data){
 					$scope.contatos = data;
 				},
 				function(statusText) {
-					console.log("Bãã"),
+					$scope.mensagem = {texto: 'Não foi possível obter a lista'};
 					console.log(statusText)
 				}
 			);
 		}
 		buscaContato();
-
-	    var Contato = $resource("/contatos/:id");
+		
 		$scope.remove = function (contato){
 			Contato.remove({id: contato._id},			
 				buscaContato,
 				function(erro){
-					console.log('Não foi possível remover contato');
+					$scope.mensagem = {texto: 'Não foi possível remover contato'};
 					console.log(erro);
 				});
-		}
-		
+		}		
 		
      	$scope.filtro = "";
 	});
