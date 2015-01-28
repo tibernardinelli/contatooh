@@ -19,6 +19,13 @@ angular.module('contatooh').controller('ContatoController',
 			$scope.contatos = contatos;
 		});
 		$scope.salva = function(){
-			$scope.contato.$save();
+			$scope.contato.$save()
+				.then(function() {
+			  		$scope.mensagem = {texto: 'Salvo com sucesso'};			  		
+			  		$scope.contato = new Contato();
+			  	})
+			  	.catch(function(erro) {
+			  		$scope.mensagem = {texto: 'Não foi possível salvar'};
+			  	});
 		};
 	});
