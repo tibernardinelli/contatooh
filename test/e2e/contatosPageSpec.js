@@ -1,6 +1,6 @@
 describe('Página principal', function(){
 	beforeEach(function(){
-		browser.get('http://localhost:3000/#/contatos')
+		browser.get('http://macdev.local:3000/#/contatos');
 	});
 
 	it('deve estar logado', function(){
