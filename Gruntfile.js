@@ -35,7 +35,7 @@ module.exports = function(grunt){
 	grunt.registerTask('default', ['dist', 'minimifica']);
 	grunt.registerTask('dist', ['clean', 'copy']);
 
-	grunt.registerTask('minimifica', ['useminPrepare', 'ngAnnotate	', 'concat', 'uglify', 'cssmin', 'usemin']);
+	grunt.registerTask('minimifica', ['useminPrepare', 'ngAnnotate', 'concat', 'uglify', 'cssmin', 'usemin']);
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
