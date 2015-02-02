@@ -1,6 +1,9 @@
-public/vendor
-node_modules
+public/vendor/
+node_modules/
 .DS_Store
+.DS_Store?
+.tmp
 *.log
 *.old
 dist/
+script/
